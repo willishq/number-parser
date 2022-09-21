@@ -1,6 +1,6 @@
 import Parser, { DatabaseEntry, InvalidNumberError } from './Parser'
 
-const database = [
+const database: DatabaseEntry[] = [
   { code: 'HK', internationalPrefix: '852' },
   { code: 'JP', internationalPrefix: '81' },
   { code: 'NZ', internationalPrefix: '64' },
@@ -52,6 +52,7 @@ describe('Parser#formatNumber', function () {
 
   it('should format a national number correctly', () => {
     expect(parser.formatNumber('012345678', '+85212876543')).toEqual('+85212345678')
+    expect(parser.formatNumber('112345678', '+1212876543')).toEqual('+112345678')
   })
 
   it('should format an international number correctly', () => {
