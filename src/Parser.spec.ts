@@ -59,7 +59,7 @@ describe('Parser#formatNumber', function () {
     expect(parser.formatNumber('+85212345678', '+44212876543')).toEqual('+85212345678')
   })
 
-  test('should not allow international numbers that are not in the database', () => {
+  it('should not allow international numbers that are not in the database', () => {
     expect(() => parser.formatNumber('07456111234', '+567456111234')).toThrow(InvalidNumberError.undefinedCountryPrefix())
     expect(() => parser.formatNumber('+567456111234', '+447456111234')).toThrow(InvalidNumberError.undefinedCountryPrefix())
   })
